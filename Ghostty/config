@@ -1,0 +1,22 @@
+theme = GitHub-Dark-Default
+
+window-padding-balance = true
+window-theme = ghostty
+background-opacity = 0.85
+background-blur-radius = 20
+macos-titlebar-style = transparent
+
+font-family = UDEV Gothic 35NFLG
+
+# cursor-opacity = 0.7
+cursor-style = block
+cursor-style-blink = true
+shell-integration-features = no-cursor
+
+mouse-hide-while-typing = true
+
+# macos-icon = custom-style
+# macos-icon-ghost-color = 010101
+# macos-icon-screen-color = FFFFFF
+
+# ghostsmith --screen-color "#FFFFFF" --ghost-color "#010101" --frame aluminum --apply
