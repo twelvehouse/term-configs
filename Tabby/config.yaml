@@ -1,0 +1,425 @@
+version: 7
+profiles:
+  - type: ssh
+    icon: fas fa-desktop
+    options:
+      host: wired-server
+      user: lain
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group16-sha512
+          - ext-info-c
+          - ext-info-s
+          - kex-strict-c-v00@openssh.com
+          - kex-strict-s-v00@openssh.com
+        cipher:
+          - aes128-ctr
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm@openssh.com
+          - chacha20-poly1305@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+      input: {}
+      privateKeys:
+        - file://C:\Users\takahashi_hizuki\Downloads\build-test2-bastion-key.pem
+      auth: password
+      forwardedPorts: []
+      scripts: []
+    weight: -1
+    name: wired-server
+    id: ssh:custom:wired-server:5adb1450-a53e-4c46-bd4d-f0c87ee645be
+  - type: ssh
+    icon: fas fa-desktop
+    options:
+      host: 13.112.141.206
+      user: ubuntu
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group16-sha512
+          - ext-info-c
+          - ext-info-s
+          - kex-strict-c-v00@openssh.com
+          - kex-strict-s-v00@openssh.com
+        cipher:
+          - aes128-ctr
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm@openssh.com
+          - chacha20-poly1305@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+      input: {}
+      privateKeys:
+        - file://C:\Users\takahashi_hizuki\Downloads\build-test2-bastion-key.pem
+      auth: publicKey
+      forwardedPorts: []
+      scripts: []
+    weight: -1
+    name: build-test-ubuntu
+    group: 0ecad321-59be-4d3d-9933-7ec1bd2cc459
+    id: ssh:custom:build-test-ubuntu:3e1796f7-a386-43a7-9f88-9c40da2f6b8c
+  - type: ssh
+    icon: fas fa-desktop
+    options:
+      host: 54.168.60.222
+      user: ubuntu
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group16-sha512
+          - ext-info-c
+          - ext-info-s
+          - kex-strict-c-v00@openssh.com
+          - kex-strict-s-v00@openssh.com
+        cipher:
+          - aes128-ctr
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm@openssh.com
+          - chacha20-poly1305@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+      input: {}
+      auth: publicKey
+      privateKeys:
+        - >-
+          file://C:\Users\takahashi_hizuki\.ssh\auto-update-test-ubuntu-bastion-key.pem
+      forwardedPorts: []
+      scripts: []
+    weight: -1
+    group: 4154392c-917f-4312-8477-242384c7d047
+    name: auto-update-test-bastion
+    id: ssh:custom:auto-update-test-bastion:2ad9f214-9c64-4535-9ad9-ea58d54cd3fa
+  - type: ssh
+    icon: fas fa-desktop
+    options:
+      host: 52.196.111.49
+      user: ubuntu
+      algorithms: {}
+      input: {}
+      auth: publicKey
+      privateKeys:
+        - >-
+          file://C:\Users\takahashi_hizuki\.ssh\smartocr-staging-auto-update-bastion-key.pem
+    weight: -1
+    group: 4154392c-917f-4312-8477-242384c7d047
+    name: smartocr-staging-auto-update-bastion
+    id: >-
+      ssh:custom:smartocr-staging-auto-update-bastion:68539c8a-90d3-4bf7-8031-6544469abfe9
+groups:
+  - id: af2a703b-1256-4810-aaad-68b3d1575552
+    name: AWS
+  - id: 0ecad321-59be-4d3d-9933-7ec1bd2cc459
+    name: AWS-Other
+  - id: 4154392c-917f-4312-8477-242384c7d047
+    name: AWS-SG
+configSync:
+  parts: {}
+hotkeys:
+  toggle-window:
+    - Ctrl-Space
+  copy-current-path: []
+  ctrl-c:
+    - Ctrl-C
+  copy:
+    - Ctrl-Shift-C
+  paste:
+    - Ctrl-Shift-V
+    - Shift-Insert
+  select-all:
+    - Ctrl-Shift-A
+  clear: []
+  zoom-in:
+    - Ctrl-=
+    - Ctrl-Shift-=
+  zoom-out:
+    - Ctrl--
+    - Ctrl-Shift--
+  reset-zoom:
+    - Ctrl-0
+  home:
+    - Home
+  end:
+    - End
+  previous-word:
+    - Ctrl-Left
+  next-word:
+    - Ctrl-Right
+  delete-previous-word:
+    - Ctrl-Backspace
+  delete-line:
+    - Ctrl-Shift-Backspace
+  delete-next-word:
+    - Ctrl-Delete
+  search:
+    - Ctrl-Shift-F
+  pane-focus-all:
+    - Ctrl-Shift-I
+  focus-all-tabs:
+    - Ctrl-Alt-Shift-I
+  scroll-to-top:
+    - Ctrl-PageUp
+  scroll-page-up:
+    - Alt-PageUp
+  scroll-up:
+    - Ctrl-Shift-Up
+  scroll-down:
+    - Ctrl-Shift-Down
+  scroll-page-down:
+    - Alt-PageDown
+  scroll-to-bottom:
+    - Ctrl-PageDown
+  restart-telnet-session: []
+  restart-ssh-session: []
+  launch-winscp: []
+  settings-tab: {}
+  settings:
+    - Ctrl-,
+  serial:
+    - Alt-K
+  restart-serial-session: []
+  new-tab:
+    - Ctrl-Shift-T
+  new-window:
+    - Ctrl-Shift-N
+  profile: {}
+  profile-selectors: {}
+  group-selectors: {}
+  toggle-fullscreen:
+    - F11
+    - Alt-Enter
+  close-tab: []
+  reopen-tab:
+    - Ctrl-Shift-Z
+  toggle-last-tab: []
+  rename-tab:
+    - Ctrl-Shift-R
+  next-tab:
+    - Ctrl-Shift-Right
+    - Ctrl-Tab
+  previous-tab:
+    - Ctrl-Shift-Left
+    - Ctrl-Shift-Tab
+  move-tab-left:
+    - Ctrl-Shift-PageUp
+  move-tab-right:
+    - Ctrl-Shift-PageDown
+  rearrange-panes:
+    - Ctrl-Shift
+  duplicate-tab: []
+  restart-tab: []
+  reconnect-tab: []
+  disconnect-tab: []
+  explode-tab:
+    - Ctrl-Shift-.
+  combine-tabs:
+    - Ctrl-Shift-,
+  tab-1:
+    - Alt-1
+  tab-2:
+    - Alt-2
+  tab-3:
+    - Alt-3
+  tab-4:
+    - Alt-4
+  tab-5:
+    - Alt-5
+  tab-6:
+    - Alt-6
+  tab-7:
+    - Alt-7
+  tab-8:
+    - Alt-8
+  tab-9:
+    - Alt-9
+  tab-10:
+    - Alt-0
+  tab-11: []
+  tab-12: []
+  tab-13: []
+  tab-14: []
+  tab-15: []
+  tab-16: []
+  tab-17: []
+  tab-18: []
+  tab-19: []
+  tab-20: []
+  split-right:
+    - Ctrl-Shift-D
+  split-bottom:
+    - Ctrl-Shift-E
+  split-left: []
+  split-top: []
+  pane-nav-right:
+    - Ctrl-Alt-Right
+  pane-nav-down:
+    - Ctrl-Alt-Down
+  pane-nav-up:
+    - Ctrl-Alt-Up
+  pane-nav-left:
+    - Ctrl-Alt-Left
+  pane-nav-previous:
+    - Ctrl-Alt-[
+  pane-nav-next:
+    - Ctrl-Alt-]
+  pane-nav-1: []
+  pane-nav-2: []
+  pane-nav-3: []
+  pane-nav-4: []
+  pane-nav-5: []
+  pane-nav-6: []
+  pane-nav-7: []
+  pane-nav-8: []
+  pane-nav-9: []
+  pane-maximize:
+    - Ctrl-Alt-Enter
+  close-pane:
+    - Ctrl-Shift-W
+  pane-increase-vertical: []
+  pane-decrease-vertical: []
+  pane-increase-horizontal: []
+  pane-decrease-horizontal: []
+  switch-profile:
+    - Ctrl-Alt-T
+  profile-selector: []
+  command-selector:
+    - Ctrl-Shift-P
+terminal:
+  searchOptions: {}
+  colorScheme:
+    name: Afterglow
+    foreground: '#d0d0d0'
+    background: '#212121'
+    cursor: '#d0d0d0'
+    colors:
+      - '#151515'
+      - '#ac4142'
+      - '#7e8e50'
+      - '#e5b567'
+      - '#6c99bb'
+      - '#9f4e85'
+      - '#7dd6cf'
+      - '#d0d0d0'
+      - '#505050'
+      - '#ac4142'
+      - '#7e8e50'
+      - '#e5b567'
+      - '#6c99bb'
+      - '#9f4e85'
+      - '#7dd6cf'
+      - '#f5f5f5'
+  font: UDEV Gothic 35NFLG
+  customColorSchemes: []
+  bell: audible
+  lightColorScheme:
+    name: Tabby Default Light
+    foreground: '#4d4d4c'
+    background: '#ffffff'
+    cursor: '#4d4d4c'
+    colors:
+      - '#000000'
+      - '#c82829'
+      - '#718c00'
+      - '#eab700'
+      - '#4271ae'
+      - '#8959a8'
+      - '#3e999f'
+      - '#ffffff'
+      - '#000000'
+      - '#c82829'
+      - '#718c00'
+      - '#eab700'
+      - '#4271ae'
+      - '#8959a8'
+      - '#3e999f'
+      - '#ffffff'
+  ligatures: true
+ssh:
+  knownHosts:
+    - host: 13.112.141.206
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: NEy0roNbLel/6duE/vADWc4lM/DI+qVt2oBb6HX1yhU=
+    - host: wired-server
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: ibj312lAEVbdYAf9O7ZptvrUjfpBHxgWyOC1JoPKAtA=
+    - host: gitlab.infordio.co.jp
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: mFIqCTNcRIZWt3gPa4cupFfgCgtGd8TsB9DeAlEfwhg=
+    - host: 52.196.111.49
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: MPKWlCOTT4gY7TjGQmci8N5nPAmWEWS2cIqTk7FYEiI=
+    - host: 54.168.60.222
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: B+HOyfOC+NJnKSLTQ8SCltD+DGwv9ZjBztS6WUswjhU=
+clickableLinks: {}
+accessibility: {}
+appearance:
+  opacity: 0.92
+hacks: {}
+providerBlacklist: []
+commandBlacklist: []
+language: ja-JP
+enableWelcomeTab: false
+pluginBlacklist: []
+profileDefaults:
+  ssh:
+    disableDynamicTitle: true
+profileBlacklist: []
+vault:
+  version: 1
+  contents: >-
+    mU4IXIUIM93P/D6qMgdS/dr5XjgMxnSfnNMPk0WGgkP02qXlM4ZNUiMUHVbaxt4Rj1tLjKmfMapA8JHUmZWYx36EheJ5PM4R1zVjuI1DoJ0OjiJAWHBSFguFyIuZ9jYksYftYX0nL0DHiD2kW8JFKUig42SFjILrx7Dlxl2/naE=
+  keySalt: 2044d75f16f1a5ab
+  iv: f6d8ecf2a3a96c5785f1d33cf249b6ca
+syncConfig:
+  type: GitHub
