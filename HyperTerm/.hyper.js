@@ -148,6 +148,10 @@ module.exports = {
             // showIndicators: false,
             indicatorPrefix: '▤  ',
             // focusOnMouseHover: true,
+        },
+        opacity: {
+            focus: 0.85,
+            blur: 0.85
         }
     },
     // a list of plugins to fetch and install from npm
@@ -157,7 +161,7 @@ module.exports = {
     //   `@company/project`
     //   `project#1.0.1`
     plugins: [// 'hyper-material-theme',
-    'verminal', "hyper-tab-icons", "hyper-pane", "hyper-highlight-active-pane", "hyper-broadcast", "hyper-statusline", "hyper-save-windowstate", "hyper-dark-scrollbar"],
+    'verminal', "hyper-tab-icons", "hyper-pane", "hyper-highlight-active-pane", "hyper-broadcast", "hyper-statusline", "hyper-save-windowstate", "hyper-dark-scrollbar", "hyper-opacity"],
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
     // to load it and avoid it being `npm install`ed
